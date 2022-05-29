@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+        
+            {% if images%}
+            <h2 class="capitalize">{{ images|length }} {{message}} images found...</h2>
+            {% else %}
+            <h2> No images found {{message}}</h2>
+            {% endif %}
+        
+        </div>
+        <hr>
+        <div class="row">
+            <div class="container">
+                <div class="card-columns">
+                    {% if images %}
+                    {% for image in images %}
+                    <div class="card border-secondary">
+                        <div class="card-header">
+                            <h4>{{image.title}}</h4>
+                        </div>
+                        <img class="card-img-top" class="img-responsive" src="{{image.img.url}}" size="100px200">
+                    </div>
+        
+                    {%endfor%}
+                </div>
+        
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
