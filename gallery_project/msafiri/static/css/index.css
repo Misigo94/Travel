@@ -1,0 +1,14 @@
+body {
+    background-image: url('../images/back2.avif');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+}
+
+.modal-dialog modal-lg {
+    background-color: aqua;
+}
+
+title {
+    color:white;
+}
