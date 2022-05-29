@@ -31,7 +31,7 @@
         
         </div>
     </nav> -->
-    <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg navv">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,18 +48,18 @@
                             Categories
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
+                            <li><a class="dropdown-item" href="#">Travel</a></li>
+                            <li><a class="dropdown-item" href="#">Food</a></li>
+                            <li><a class="dropdown-item" href="#">Fun</a></li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                     </li>
+
                 </ul>
             <form class='d-flex' action="{% url 'search' %}" method="GET">
                 <input name="category" class="form-control" type="search" placeholder="Search" aria-label="Search">
-                <input type="submit" class="btn btn-primary" value="search">
+                <input type="submit" class="btn btn-primary search" value="search">
             </form>
             </div>
         </div>
@@ -73,16 +73,16 @@
         </form> -->
 
 
-        <div class="row row-cols-lg-4 row-cols-md-3 row-cols-12">
+        <div class="row row-cols-lg-4 row-cols-md-3 row-cols-12 gallery">
             {% for image in img %}
 
-            <div class="card col-2 mx-2 my-2" style="width: 18rem;">
-                <img src="{{image.img.url}}" class="card-img-top" alt="...">
+            <div class="card col-2 mx-2 my-2 mycard" style="width: 16rem;">
+                <img src="{{image.img.url}}" class="card-img-top img-fluid" alt="... " style="width: 16rem; height: 200px;">
                 <div class="card-body">
                     <!-- <h5 class="card-title">{{image.title}}</h5>
                     <p class="card-text">{{image.img_description}}</p> -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Click for more details
+                    <button type="button" class="btn btn-primary mybutton" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        {{image.title}}
                     </button>
     
                 </div>
@@ -91,8 +91,8 @@
 
             {% for image in img %}
             <div class="modal fade" id="exampleModal{{img.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content modall">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">{{image.title}}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -103,7 +103,7 @@
                             <p>Location :{{image.location.location_name}}</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary closse" data-bs-dismiss="modal">Close</button>
                             <button type="button" name="button" class="btn btn-info"
                                 value="http://127.0.0.1:8000/{{image.img.url}}" onclick="copylink(this.value)">Copy Image
                                 Link</button>
