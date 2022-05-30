@@ -20,3 +20,19 @@ class ImageTestCase(TestCase):
         self.assertEqual(obj1.img_description,('People having fun'))
         self.assertEqual(obj1.img_description,('Traveling vehicle'))
 
+class categoriesTest(TestCase):
+    def setUp(self):
+        self.nature = Category(name='nature')
+
+    def test_instance(self):
+        self.nature.save()
+        self.assertTrue(isinstance(self.nature, Category))
+
+class LocationTest(TestCase):
+    def setUp(self):
+        self.nairobi = Location(name='nairobi')
+
+    def test_instance(self):
+        self.nairobi.save()
+        self.assertTrue(isinstance(self.nairobi, Location))
+
